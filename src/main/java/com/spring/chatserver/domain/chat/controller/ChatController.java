@@ -50,6 +50,13 @@ public class ChatController {
 
         return RestResponse.success(chatRes);
     }
+    // 채팅메세지 가져오기
+ /*   @GetMapping("/chats/messages/{room-id}")
+    public RestResponse<MessageResList> getMessages(@PathVariable("room-id") long roomId,
+                                                    @AuthenticationPrincipal UserDetailsImpl userDetails) {
 
+        UserValidator.validate(userDetails.getUser());
+        re
+    }*/
 
 }
