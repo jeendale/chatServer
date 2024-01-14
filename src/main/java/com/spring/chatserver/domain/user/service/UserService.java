@@ -7,10 +7,13 @@ import com.spring.chatserver.domain.user.dto.response.SignUpRes;
 import com.spring.chatserver.domain.user.entity.User;
 import com.spring.chatserver.domain.user.repository.UserRepository;
 import com.spring.chatserver.domain.user.util.JwtUtil;
+import com.spring.chatserver.global.exception.GlobalException;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -39,4 +42,6 @@ public class UserService {
 
         return new LoginRes();
     }
+
+
 }
