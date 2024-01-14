@@ -1,5 +1,6 @@
 package com.spring.chatserver.domain.chat.config;
 
+import com.spring.chatserver.domain.chat.entity.Chat;
 import com.spring.chatserver.domain.chat.redis.RedisSubscriber;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -38,8 +39,8 @@ public class RedisConfig {
 
     //chatRedis템플릿생성
     @Bean
-    public RedisTemplate<String, Object> chatRedisTemplate(RedisConnectionFactory connectionFactory) {
-        RedisTemplate<String, Object> chatRedisTemplate = new RedisTemplate<>();
+    public RedisTemplate<String, Chat> chatRedisTemplate(RedisConnectionFactory connectionFactory) {//object는 왜 안될까?
+        RedisTemplate<String, Chat> chatRedisTemplate = new RedisTemplate<>();
         chatRedisTemplate.setConnectionFactory(connectionFactory);
         chatRedisTemplate.setKeySerializer(new StringRedisSerializer());
         chatRedisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Object.class));
