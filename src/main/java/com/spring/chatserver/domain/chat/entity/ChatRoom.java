@@ -11,7 +11,6 @@ import java.io.Serializable;
 
 @Entity
 @Getter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChatRoom implements Serializable {
@@ -26,4 +25,10 @@ public class ChatRoom implements Serializable {
     @ManyToOne
     @JoinColumn(name = "receiver_id")
     private User receiver;
+
+    @Builder
+    private ChatRoom(User sender,User receiver){
+        this.sender=sender;
+        this.receiver=receiver;
+    }
 }
